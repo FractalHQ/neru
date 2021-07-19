@@ -6,15 +6,15 @@ Neru is the file router for Express, build your express apps faster with a easy 
 
 # Core Features
 
--   [x] Dynamic Routing
--   [x] All types of requests: [express request support](https://expressjs.com/en/4x/api.html#routing-methods)
--   [x] Route files based on express.Router
+-   [ ] Dynamic Routing
+-   [ ] All types of requests: [express request support](https://expressjs.com/en/4x/api.html#routing-methods)
 -   [ ] Cli tools
--   [x] Middleware support
+-   [ ] Middleware support
 -   [ ] Custom data to routes
 -   [ ] Fallback routes
 -   [ ] Events
--   [x] Files begining with \_ are ignored
+-   [ ] Files begining with \_ are ignored
+-   [ ] Block file names with illegal chars
 
 # Possible Features
 
@@ -52,20 +52,19 @@ Route files are simple to use, the boilerplate for a route file is 1 - 2 lines d
 -   ### CJS
 
     ```js
-    const router = require('neru/route')();
-
-    // Code
-
-    module.exports = router;
+    module.exports = {
+        get: (req, res) => {
+            res.send('Hello World')
+        }
+    }
     ```
 
 -   ### Esm
 
     ```js
-    import { route } from 'neru';
-    export const router = route();
-
-    // Code
+    export function get(req, res) {
+        res.send('Hello World')
+    }
     ```
 
 Currently Neru does not block characters in route file names, but this is subject to change. You need to be careful when using special characters as some aren't [safe for a url](https://abramillar.com/2018/01/15/special-characters-short-words-urls/), also some are used by express for extended dynamic routing as seen [here](https://expressjs.com/en/4x/api.html#path-examples) so could cause unexpected behaviour.
