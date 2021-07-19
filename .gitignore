@@ -1,6 +1,3 @@
-# NPM
 node_modules
-
-# Development Files
+dist
 dev
-*.rest

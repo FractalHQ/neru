@@ -12,6 +12,11 @@
         "build": "tsup-node",
         "test": "uvu tests -b -c"
     },
+    "files": [
+        "dist",
+        "LICENSE",
+        "README.md"
+    ],
     "exports": {
         ".": {
             "require": "./dist/index.js",
