@@ -2,25 +2,34 @@
     "name": "neru",
     "version": "0.3.0",
     "author": "GHOST",
-    "main": "src/index.js",
-    "type": "module",
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
     "description": "Neru is the file router for express.",
     "scripts": {
-        "dev": "nodemon dev/index.js",
+        "dev": "run-p dev:*",
+        "dev:ts": "tsup-node --watch src",
+        "dev:nodemon": "nodemon dev/index.js",
+        "build": "tsup-node",
         "test": "uvu tests -b -c"
     },
     "exports": {
-        "./package.json": "./package.json",
-        ".": "./src/index.js"
+        ".": {
+            "require": "./dist/index.js",
+            "import": "./dist/index.mjs"
+        }
     },
     "dependencies": {
         "configent": "^2.2.0",
         "recursive-readdir-sync": "^1.0.6"
     },
     "devDependencies": {
+        "@types/node": "^16.3.3",
         "axios": "^0.21.1",
         "express": "^4.17.1",
-        "nodemon": "^2.0.7",
+        "nodemon": "^2.0.12",
+        "npm-run-all": "^4.1.5",
+        "tsup": "^4.12.5",
+        "typescript": "^4.3.5",
         "uvu": "^0.5.1"
     },
     "peerDependencies": {
